@@ -1,3 +1,12 @@
 https://hackerone.com/reports/104543
 https://hackerone.com/reports/104559
 https://hackerone.com/reports/104620
+https://hackerone.com/reports/104896
+https://hackerone.com/reports/104917
+https://hackerone.com/reports/104931
+https://hackerone.com/reports/105149
+https://hackerone.com/reports/105190
+https://hackerone.com/reports/105363
+https://hackerone.com/reports/105434
+https://hackerone.com/reports/105463
+https://hackerone.com/reports/105486
