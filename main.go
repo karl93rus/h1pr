@@ -11,7 +11,7 @@ import (
 
 var host = "https://hackerone.com/reports/"
 
-func main() {
+func loopURLs() {
   var param int
   param = 104543
   for i := 0; i < 1100; i++ {
@@ -40,4 +40,8 @@ func main() {
     //fmt.Println(i)
     param++
   }
+}
+
+func main() {
+    loopURLs()
 }
