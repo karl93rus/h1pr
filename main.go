@@ -43,15 +43,16 @@ func loopURLs() {
   }
 }
 
-var id int = 104543
+var id int = 104500
 
 func main() {
   // loopURLs()
+  ch := make(chan string, 100)
   var wg sync.WaitGroup
-  for j := 0; j < 10; j++ {
+  for j := 0; j < 5; j++ {
     wg.Add(1)
     go func() {
-      for i := 0; i < 1100; i++ {
+      for i := 0; i < 500; i++ {
         resp, err := http.Get(host + strconv.Itoa(id))
         if err != nil {
           fmt.Println(err)
@@ -68,12 +69,22 @@ func main() {
           line := scan.Text()
           if strings.Index(line, "<meta name=\"twitter") >= 0 {
             // fmt.Println(line)
-            fmt.Println(host + strconv.Itoa(id))
+            // fmt.Println(host + strconv.Itoa(id))
+            ch <- host + strconv.Itoa(id)
             break
           }
         }
         id++
-        // fmt.Println(id)
+        fmt.Println(id)
+      }
+      wg.Done()
+    }()
+
+    wg.Add(1)
+    go func() {
+      // fmt.Println(<- ch)
+      for i := range ch {
+        fmt.Println(i)
       }
       wg.Done()
     }()
